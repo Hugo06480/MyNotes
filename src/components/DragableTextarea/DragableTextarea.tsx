@@ -1,10 +1,19 @@
+import { ContextMenu } from "primereact/contextmenu";
 import { useState, useRef } from "react";
 
 function DraggableTextarea() {
+
+  const items = [
+    { label: 'Delete', icon: 'pi pi-delete' },
+];
+
   const [dragging, setDragging] = useState(false);
   const [focusing, setFocusing] = useState(false);
   const [{ dx, dy }, setPosition] = useState({ dx: 0, dy: 0 });
   const eleRef = useRef<HTMLDivElement>(null);
+  const cm = useRef(null);
+
+  
 
   const handleMouseDown = (e: MouseEvent) => {
     const startPos = {
@@ -57,6 +66,8 @@ function DraggableTextarea() {
   //   };
 
   return (
+    <>
+    <ContextMenu model={items} ref={cm} breakpoint="767px" />
     <div
       className="indicator"
       style={{ top: dy, left: dx }}
@@ -73,6 +84,7 @@ function DraggableTextarea() {
         onResize={handleResize}
       />
     </div>
+    </>
   );
 }
 

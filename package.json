@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "preact": "^10.19.6",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.6.5",
     "theme-change": "^2.5.0"
   },
   "devDependencies": {
